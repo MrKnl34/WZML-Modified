@@ -326,11 +326,11 @@ if MIRROR_ENABLED:
     zip_mirror_handler = CommandHandler(BotCommands.ZipMirrorCommand, zip_mirror,
                                     filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
     qb_mirror_handler = CommandHandler(BotCommands.QbMirrorCommand, qb_mirror,
-                                    filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
+                                    filters=CustomFilters.owner_filter | CustomFilters.authorized_user, run_async=True)
     qb_unzip_mirror_handler = CommandHandler(BotCommands.QbUnzipMirrorCommand, qb_unzip_mirror,
-                                    filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
+                                    filters=CustomFilters.owner_filter | CustomFilters.authorized_user, run_async=True)
     qb_zip_mirror_handler = CommandHandler(BotCommands.QbZipMirrorCommand, qb_zip_mirror,
-                                    filters=CustomFilters.authorized_chat | CustomFilters.authorized_user, run_async=True)
+                                    filters=CustomFilters.owner_filter | CustomFilters.authorized_user, run_async=True)
 
 else:
     mirror_handler = CommandHandler(BotCommands.MirrorCommand, mirror,
